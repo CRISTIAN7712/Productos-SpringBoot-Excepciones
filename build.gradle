@@ -1,0 +1,38 @@
+plugins {
+    // Plugin Java estándar
+    id 'java'
+    // Plugin de Spring Boot (controla packaging, ejecución, versions)
+    id 'org.springframework.boot' version '3.2.0'
+    // Manejo de versiones de dependencias
+    id 'io.spring.dependency-management' version '1.1.0'
+}
+
+group = 'com.ejemplo'        // groupId del proyecto
+version = '1.0'             // versión del artefacto
+sourceCompatibility = '21'   // Java 17
+
+repositories {
+    // Repositorio central de Maven para descargar dependencias
+    mavenCentral()
+}
+
+dependencies {
+    // Spring Web: para crear controladores REST
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    // Spring Data JPA: integración con JPA/Hibernate
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+    // Driver PostgreSQL para conectarse a la base de datos
+    implementation 'org.postgresql:postgresql'
+
+    // Validation: javax/jakarta validation (para @Valid, @NotNull, etc.)
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+
+    // Lombok: reduce boilerplate (getters, setters, constructor, builder)
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+
+    // Tests (opcional)
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
